@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Simple PDF-Kompressor",
+  title: "PDF Komprimieren - Kostenlos & Schnell | Simple Tools",
   description: "Komprimiere PDF-Dateien schnell und kostenlos direkt im Browser.",
   icons: {
     icon: "/favicon.ico",
   },
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://pdf-compressor-two.vercel.app"),
   openGraph: {
     title: "Simple Tools - PDF-Kompressor",
     description: "Komprimiere PDFs mit einem Klick.",
