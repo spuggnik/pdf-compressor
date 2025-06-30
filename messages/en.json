@@ -1,0 +1,17 @@
+{
+  "heading": "PDF Compressor",
+  "subtitle": "Compress your PDF files in seconds & for free. No registration, no waiting.",
+  "upload": "Upload PDF",
+  "icon1": "Fast & easy",
+  "icon2": "Local & secure",
+  "icon3": "No quality loss",
+  "DialogTitle": "Upload PDF",
+  "DialogButton1": "Choose file",
+  "PDFFile": "Selected file: ",
+  "DialogButton2": "Compress now",
+  "DialogButton3": "Compressing...",
+  "DialogDescription1": "Original file size: ",
+  "DialogDescription2": "Compressed file size: ",
+  "DialogDescription3": "File reduced by ",
+  "DialogDescription4": " %"
+}

@@ -4,6 +4,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Button } from "@/components/ui/button"
 import { useRef, useState } from "react"
 import { CloudLightningIcon, LockIcon, FileIcon} from "lucide-react"
+import { useTranslations } from "next-intl";
 
 
 
@@ -14,6 +15,7 @@ export default function CompressorPage() {
   const [reduction, setReduction] = useState<number | null>(null)
   const [fileSize, setFileSize] = useState<number | null>(null)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const t = useTranslations();
 
   const handleButtonClick = () => {
     fileInputRef.current?.click()
@@ -72,31 +74,30 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 }
 
   return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-6 p-10 bg-gradient-to-b from-white to-gray-400 min-h-screen px-4 py-12 mx-auto">
-        <h1 className="text-5xl font-bold text-center">PDF-Kompressor</h1>
+      <main className="flex min-h-screen flex-col items-center justify-center gap-6 p-10 bg-gradient-to-b from-white to-gray-400 px-4 py-12 mx-auto">
+        <h1 className="text-5xl font-bold text-center">{t("heading")}</h1>
         <p className="text-gray-600 text-center max-w-xl text-xl mb-6">
-          Komprimiere deine PDF-Dateien blitzschnell & kostenlos.
-          Keine Registrierung, keine Wartezeit.
+          {t("subtitle")}
         </p>
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="text-1xl px-6 py-3 hover:scale-105 mb-6 cursor-pointer" size="lg" >PDF hochladen</Button>
+            <Button className="text-1xl px-6 py-3 hover:scale-105 mb-6 cursor-pointer" size="lg" >{t("upload")}</Button>
           </DialogTrigger>
 
           <DialogContent>
             <DialogHeader>
-              <DialogTitle className="text-2xl">PDF hochladen</DialogTitle>
+              <DialogTitle className="text-2xl">{t("DialogTitle")}</DialogTitle>
               <DialogDescription>
                 <input type="file" accept=".pdf" className="mt-4 text-center font-semibold hidden" onChange={handleFileChange} ref={fileInputRef}/>
 
                 <Button className="text-center font-semibold mt-4 cursor-pointer" onClick={handleButtonClick}>
-                  Datei auswählen
+                  {t("DialogButton1")}
                 </Button>
                 <br />
                 <br />
                 {file && (
                   <span className="text-sm text-gray-800 font-semibold">
-                    Ausgewählte Datei: <span className="font-medium">{file.name}</span>
+                    {t("PDFFile")}<span className="font-medium">{file.name}</span>
                   </span>
                 )}
                 
@@ -106,25 +107,22 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                   className="p-4 mt-4 mb-4 text-center font-semibold cursor-pointer"
                   onClick={handleUpload}
                   disabled={!file || isLoading}>
-                    {isLoading ? "Wird komprimiert..." : "Jetzt komprimieren"}
+                    {isLoading ? t("DialogButton3") : t("DialogButton2")}
                   </Button>
                   <br />
                   
                     {typeof window !== "undefined" && fileSize !== null && (
-                    <span className="text-sm text-gray-500">Ursprüngliche Größe: {(fileSize / 1024).toFixed(2)} KB</span>
+                    <span className="text-sm text-gray-500">{t("DialogDescription1")}{(fileSize / 1024).toFixed(2)} KB</span>
                   )}
                   
                   <br />
                   {typeof window !== "undefined" && compressedFileSize !== null && (
-                    <span className="text-sm text-gray-500">Komprimierte Größe: {(compressedFileSize / 1024).toFixed(2)} KB</span>
+                    <span className="text-sm text-gray-500">{t("DialogDescription2")}{(compressedFileSize / 1024).toFixed(2)} KB</span>
                   )}
                   <br />
                   {reduction !== null && (
-                    <span className="text-sm font-medium text-emerald-600"> Datei um {reduction.toFixed(1)} % verkleinert!</span>
+                    <span className="text-sm text-emerald-600 font-bold"> {t("DialogDescription3")} {reduction.toFixed(1)} {t("DialogDescription4")}</span>
                   )}
-
-                  
-                  
                
               </DialogDescription>
             </DialogHeader>
@@ -135,15 +133,15 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         </Dialog>
     <div>
       <CloudLightningIcon className="mx-auto mb-1 h-6 w-6 text-emerald-600" />
-      <p className="text-base font-medium text-gray-700">Schnell & einfach</p>
+      <p className="text-base font-medium text-gray-700">{t("icon1")}</p>
     </div>
     <div>
       <LockIcon className="mx-auto mb-1 h-6 w-6 text-emerald-600" />
-      <p className="text-base font-medium text-gray-700">Lokal & sicher</p>
+      <p className="text-base font-medium text-gray-700">{t("icon2")}</p>
     </div>
     <div>
       <FileIcon className="mx-auto mb-1 h-6 w-6 text-emerald-600" />
-      <p className="text-base font-medium text-gray-700">Keine Qualitätsverluste</p>
+      <p className="text-base font-medium text-gray-700">{t("icon3")}</p>
     </div>
       </main>
   );

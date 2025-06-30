@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import withNextIntl from "next-intl/plugin";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  experimental: {
+    serverActions: {},
+  },
+  // weitere Optionen hier
 };
 
-export default nextConfig;
+export default withNextIntl()(nextConfig);

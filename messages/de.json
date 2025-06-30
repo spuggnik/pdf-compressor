@@ -1,0 +1,17 @@
+{
+    "heading": "PDF-Kompressor",
+    "subtitle": "Komprimiere deine PDF-Dateien blitzschnell & kostenlos. Keine Registrierung, keine Wartezeit.",
+    "upload": "PDF hochladen",
+    "icon1": "Schnell & einfach",
+    "icon2": "Lokal & sicher",
+    "icon3": "Keine Qualitätsverluste",
+    "DialogTitle": "PDF hochladen",
+    "DialogButton1": "Datei auswählen",
+    "PDFFile": "Ausgewählte Datei: ",
+    "DialogButton2": "Jetzt komprimieren",
+    "DialogButton3": "Wird komprimiert...",
+    "DialogDescription1": "Ursprüngliche Dateigröße: ",
+    "DialogDescription2": "Komprimierte Dateigröße: ",
+    "DialogDescription3": "Datei um ",
+    "DialogDescription4": " % verkleinert!"
+}

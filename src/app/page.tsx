@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function Home() {
-    redirect("/compressor")
+export default function LocaleRedirect() {
+    redirect("/en/compressor");
 }
