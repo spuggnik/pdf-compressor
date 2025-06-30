@@ -1,5 +1,5 @@
 import NavBar from '@/components/NavBar';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 
 export default async function LocaleLayout({
   children,
