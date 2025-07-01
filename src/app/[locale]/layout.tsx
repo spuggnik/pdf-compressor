@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 
 type Props = {
   children: ReactNode;
-  params: { locale: string};
+  params: Promise<{ locale: string}> | { locale: string };
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
