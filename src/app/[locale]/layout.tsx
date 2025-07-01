@@ -1,13 +1,8 @@
-import { ReactNode } from "react";
 import NavBar from '@/components/NavBar';
 import { NextIntlClientProvider } from 'next-intl';
+import type { LayoutProps } from 'next';
 
-type Props = {
-  children: ReactNode;
-  params: Promise<{ locale: string}> | { locale: string };
-};
-
-export default async function LocaleLayout({ children, params }: Props) {
+export default async function LocaleLayout({ children, params }: LayoutProps<{ locale: string }>) {
   const awaitedParams = await params;
   const locale = awaitedParams.locale ?? "en";
   const messages = await import(`../../../messages/${locale}.json`).then(m => m.default);
