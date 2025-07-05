@@ -1,9 +1,14 @@
 import NavBar from '@/components/NavBar';
 import { NextIntlClientProvider } from 'next-intl';
 
-export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: any }) {
-  const awaitedParams = await params;
-  const locale = awaitedParams.locale ?? 'en';
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const messages = await import(`../../../messages/${locale}.json`).then(m => m.default);
 
   return (
